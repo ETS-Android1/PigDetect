@@ -214,7 +214,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
               final List<Detector.Recognition> mappedRecognitions =
                       new ArrayList<Detector.Recognition>();
-
+//todo limpiar este for, ponerlo en un método, este for pinta la caja
               for (int i = 0; i < scoresValues.length; i++) {
                 int initPositionBoxCurrent = i * sizeEachBox;
                 float[] box = Arrays.copyOfRange(locationsValues, initPositionBoxCurrent, initPositionBoxCurrent + sizeEachBox);
