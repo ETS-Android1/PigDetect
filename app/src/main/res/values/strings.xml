@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Pig Detector</string>
+    <string name="camera_error">Este dispositivo no soporta la API de Cámara</string>
+</resources>
