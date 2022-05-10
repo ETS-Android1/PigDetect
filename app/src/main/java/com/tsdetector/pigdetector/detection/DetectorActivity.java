@@ -214,10 +214,12 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
               final List<Detector.Recognition> mappedRecognitions =
                       new ArrayList<Detector.Recognition>();
+
 //todo limpiar este for, ponerlo en un método, este for pinta la caja
               for (int i = 0; i < scoresValues.length; i++) {
                 int initPositionBoxCurrent = i * sizeEachBox;
                 float[] box = Arrays.copyOfRange(locationsValues, initPositionBoxCurrent, initPositionBoxCurrent + sizeEachBox);
+
                 System.out.println(scoresValues[i]);
                 if (scoresValues[i] >= minimumConfidence) {
                   int left = (int) (box[1] * TF_OD_API_INPUT_SIZE);
@@ -230,6 +232,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                   mappedRecognitions.add(new Detector.Recognition(i + "", " " + (i + 1), scoresValues[i], rectF));
                   System.out.println(Arrays.toString(box));
                 }
+                showCountInfo(String.valueOf(mappedRecognitions.size()));
               }
 
               tracker.trackResults(mappedRecognitions, currTimestamp);

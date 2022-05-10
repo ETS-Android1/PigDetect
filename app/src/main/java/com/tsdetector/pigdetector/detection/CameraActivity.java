@@ -88,7 +88,7 @@ public abstract class CameraActivity extends AppCompatActivity
     private LinearLayout gestureLayout;
     private BottomSheetBehavior<LinearLayout> sheetBehavior;
 
-    protected TextView frameValueTextView, cropValueTextView, inferenceTimeTextView;
+    protected TextView frameValueTextView, cropValueTextView, inferenceTimeTextView,countTextView;
     protected ImageView bottomSheetArrowImageView;
 
     protected ListView listView;
@@ -165,6 +165,7 @@ public abstract class CameraActivity extends AppCompatActivity
         frameValueTextView = findViewById(R.id.frame_info);
         cropValueTextView = findViewById(R.id.crop_info);
         inferenceTimeTextView = findViewById(R.id.inference_info);
+        countTextView = findViewById(R.id.count_info);
     }
 
     protected int[] getRgbBytes() {
@@ -519,7 +520,10 @@ public abstract class CameraActivity extends AppCompatActivity
 
     protected void showInference(String inferenceTime) {
         inferenceTimeTextView.setText(inferenceTime);
+    }protected void showCountInfo(String countInfo) {
+        countTextView.setText(countInfo);
     }
+
 
     protected abstract void processImage();
 
